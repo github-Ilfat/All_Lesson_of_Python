@@ -1,0 +1,2 @@
+# AI_Python_L01
+repository_for_lesso01
