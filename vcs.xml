@@ -14,6 +14,18 @@
           <option name="url" value="https://github.com/github-Ilfat/AI_repository_L02.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/MachineLearningIsEasy/python_lesson_3" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/windn19/neuraluniversity/blob/master/lessen3/lessen3.py" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/mrEnst-python/nuCoursePython/blob/master/third.py" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="C:\Users\AI_user\PycharmProjects\Python_course" />
