@@ -37,8 +37,11 @@ def find_sort_symbol(list_names):
     #print(type(dict_First_sym_of_names),dict_First_sym_of_names)
     return dict_First_sym_of_names[0][0]
 
-New_list_gen = select_names(['Ильфат', 'Ильдар', 'Ильгиз', 'Ильдус', 'Ильнур', 'Ильшат', 'Ильхам','Салих', 'Ирек',
-                      'Марат', 'Айрат', 'Айдар', 'Ахмат', 'Ринат', 'Руслан', 'Рустам', 'Шамиль'], new_len_list_names_N=100)
+New_list_gen = select_names(['Ильфат', 'Ильдар', 'Ильгиз', 'Ильдус', 'Ильнур',
+                             'Ильшат', 'Ильхам','Салих', 'Ирек', 'Марат',
+                             'Айрат', 'Айдар', 'Ахмат', 'Ринат', 'Руслан',
+                             'Рустам', 'Шамиль', 'Фанис', 'Фидан', 'Альберт'], new_len_list_names_N=100)
 print(New_list_gen)
 print(Name_repead_max(New_list_gen))
-print(find_sort_symbol(New_list_gen), '- здесь вероятнее всего, самыми редкими первыми символами имён должны быть "С","М","Ш"')
+print(find_sort_symbol(New_list_gen), '- здесь вероятнее всего,')
+print('самыми редкими первыми символами имён должны быть "С","М","Ш"')
