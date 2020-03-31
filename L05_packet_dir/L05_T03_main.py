@@ -1,15 +1,15 @@
-# import my_math_module
+# import L05_T02_my_math_module
 #
 # print(__name__)
-# print(my_math_module.my_add(3,8))
+# print(L05_T02_my_math_module.my_add(3,8))
 #
 # # (f_n)^2 + (f_{n+1})^2 = f_{2n+1}
 #
 # n = 10
 #
-# print(my_math_module.fib_num_l(n)**2 + my_math_module.fib_num_l(n+1)**2)
+# print(L05_T02_my_math_module.fib_num_l(n)**2 + L05_T02_my_math_module.fib_num_l(n+1)**2)
 #
-# print(my_math_module.fib_num_l(2*n+1))
+# print(L05_T02_my_math_module.fib_num_l(2*n+1))
 
 # 1
 # from packet import math_op
