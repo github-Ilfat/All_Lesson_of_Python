@@ -10,3 +10,4 @@
 # Repository:
 # https://github.com/github-Ilfat/All_Lesson_of_Python.git
 # ссылку на PullRequest ветки с тестами:
+# https://github.com/github-Ilfat/All_Lesson_of_Python/compare/L06_branche_test01_for_Job_L05?expand=1
