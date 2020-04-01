@@ -71,5 +71,5 @@ def check_nuber(num):
     return result
 
 # Исследуемое число:
-num = 1
+num = 997
 print("Максимальный простой делитель исследуемого числа =", check_nuber(num))
