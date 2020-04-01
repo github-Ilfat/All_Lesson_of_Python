@@ -1,0 +1,1 @@
+print('This is L06_branche_text01_for_Job_L05')
