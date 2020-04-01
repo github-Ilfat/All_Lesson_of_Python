@@ -8,7 +8,7 @@ def is_prime(n):
             break
         i += 1
     return i == n
-print(is_prime(344))
+print(is_prime(1000))
 
 # 2) выводит список всех делителей числа;
 def all_dividers(n):
@@ -23,7 +23,7 @@ def all_dividers(n):
     if  n > 1:
         result.append(n)
     return result
-print(all_dividers(23244))
+print(all_dividers(1000))
 
 # 3) выводит самый большой простой делитель числа.
 def greatest_pr_div(n):
@@ -33,4 +33,4 @@ def greatest_pr_div(n):
         if i > max_num:
             max_num = i
     return(max_num)
-print(greatest_pr_div(23244))
+print(greatest_pr_div(1000))
