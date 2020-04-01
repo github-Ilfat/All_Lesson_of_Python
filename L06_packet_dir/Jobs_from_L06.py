@@ -7,4 +7,6 @@
 #       PYTEST "test_python_L06_branche_for_Job_L05_TEST02.py";
 #       UNITTEST "test_unittest_L06_branche_for_Job_L05_TEST03.py"
 #4. В качестве ответа на дз высылаю ссылку на ветку с тестами или ссылку на PullRequest ветки с тестами с веткой master.
-
+# Repository:
+# https://github.com/github-Ilfat/All_Lesson_of_Python.git
+# ссылку на PullRequest ветки с тестами:
