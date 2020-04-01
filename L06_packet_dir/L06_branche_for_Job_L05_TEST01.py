@@ -2,7 +2,7 @@ print('This is L06_branche_for_Job_L05_TEST01')
 
 print('------------------------------------------------------------------------------------------------------------')
 print('Блок проверки ввода значений из файл "L06_branche_for_Job_L05_TEST01_data",')
-print('для тестирования модуля "Jobs_from_L05_divisor_master.py",')
+print('для тестирования модуля "Jobs_from_L05_divisor_master.py".')
 f = open('L06_branche_for_Job_L05_TEST01_data')
 int_arr_list = []
 err_set=0
@@ -37,14 +37,29 @@ print('полуавтоматический "наивный" тест:')
 from L05_packet_dir.Jobs_from_L05_divisor_master import check_nuber
 
 def function_test():
-    chk_list = [1,2,3,37,37,5,5,83,997,499,37,5]
+    global ok,err
+    ok=int(0)
+    err=int(0)
+    # только правильные значения ответов:
+    #chk_list = [1,2,3,37,37,5,5,83,997,499,37,5]
+    # для теста:
+    chk_list = [1,5,3,37,37,5,7,82,997,499,37,5]
     for i in  range(len(int_arr_list)):
         num = int_arr_list[i]
         res_out = check_nuber(num)
         chk_num = chk_list[i]
         print('-------------------------------------------------------------------------------------------------------')
         print('результаты теста 1.',i,':', sep='')
-        if res_out == chk_num: print('- без ошибки, число :', num,'максимальный простой делитель =', chk_num)
-        else: print(' - с ошибкой, число :', num,'максимальный простой делитель <>')
+        if res_out == chk_num:
+            ok += 1
+            print('- без ошибки, число :', num,'максимальный простой делитель =', chk_num)
+        else:
+            err += 1
+            print(' - с ошибкой, число :', num,'максимальный простой делитель <>')
         print('-------------------------------------------------------------------------------------------------------')
 function_test()
+
+print('Общее количество тестируемых значений:',len(int_arr_list))
+print('количество ошибок:', ok)
+print('количество ошибок:', err)
+
