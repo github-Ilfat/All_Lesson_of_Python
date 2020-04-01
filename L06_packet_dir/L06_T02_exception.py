@@ -19,7 +19,7 @@
 #     print('Это было не просто!')
 #
 
-f = open('data')
+f = open('L07_T01_data')
 int_arr_list = []
 try:
     for line in f:
