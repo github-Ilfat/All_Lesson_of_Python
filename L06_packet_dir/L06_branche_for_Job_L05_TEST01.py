@@ -42,6 +42,9 @@ def function_test():
         num = int_arr_list[i]
         res_out = check_nuber(num)
         chk_num = chk_list[i]
-        if res_out == chk_num: print('Test ',i,' is ok!')
-        else: print('Test ',i,' is failed!')
+        print('-------------------------------------------------------------------------------------------------------')
+        print('результаты теста 1.',i,':', sep='')
+        if res_out == chk_num: print('- без ошибки, число :', num,'максимальный простой делитель =', chk_num)
+        else: print(' - с ошибкой, число :', num,'максимальный простой делитель <>')
+        print('-------------------------------------------------------------------------------------------------------')
 function_test()
