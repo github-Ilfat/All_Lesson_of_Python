@@ -1,3 +1,10 @@
 <profile version="1.0">
   <option name="myName" value="Default" />
+  <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+    <option name="ignoredIdentifiers">
+      <list>
+        <option value="L06_packet_dir.test_python_L06_branche_for_Job_L05_TEST02.*" />
+      </list>
+    </option>
+  </inspection_tool>
 </profile>
