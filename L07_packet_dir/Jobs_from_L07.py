@@ -20,9 +20,10 @@ from docx.shared import Cm
 from docxtpl import DocxTemplate, InlineImage
 
 # get_context - возвращает словарь аргуменов
-def get_context(name_of, date_of, signature1, signature2, signature3):
+def get_context(name_of, discr, date_of, signature1, signature2, signature3):
     return {
         'name_of_info': name_of,
+        'discription': discr,
         'date_of_info': date_of,
         'image1': signature1,
         'image2': signature2,
@@ -30,42 +31,37 @@ def get_context(name_of, date_of, signature1, signature2, signature3):
     }
 
 # здесь происходит вставка в шаблон (signature - картинка)
-def from_template(company, date_of, template, signature1, signature2, signature3):
+def from_template(name_of, discr, date_of, template, signature1, signature2, signature3):
     template = DocxTemplate(template)
     # gets the context used to render the document
-    context = get_context(company, date_of, signature1, signature2, signature3)
+    context = get_context(name_of, discr, date_of, signature1, signature2, signature3)
 
-    img_size1 = Cm(15)  # sets the size of the image
-    image1 = InlineImage(template, signature1, img_size1)
-    context['Jobs_from_L07_image1'] = image1  # adds the InlineImage object to the context
-#    template.render(context)
+    img_size = Cm(15)  # sets the size of the image
+    image = InlineImage(template, signature1, img_size)
+    context['Jobs_from_L07_image1'] = image  # adds the InlineImage object to the context
 
-    img_size2 = Cm(15)  # sets the size of the image
-    image2 = InlineImage(template, signature2, img_size2)
-    context['Jobs_from_L07_image2'] = image2  # adds the InlineImage object to the context
-#    template.render(context)
+    img_size = Cm(15)  # sets the size of the image
+    image = InlineImage(template, signature2, img_size)
+    context['Jobs_from_L07_image2'] = image  # adds the InlineImage object to the context
 
-    img_size3 = Cm(15)  # sets the size of the image
-    image3 = InlineImage(template, signature3, img_size3)
-    context['Jobs_from_L07_image3'] = image3  # adds the InlineImage object to the context
+    img_size = Cm(15)  # sets the size of the image
+    image = InlineImage(template, signature3, img_size)
+    context['Jobs_from_L07_image3'] = image  # adds the InlineImage object to the context
 
     template.render(context)
 
-    #print (type(context), context)
-    #print (type(template), template)
-
     # запись файла doc
-    template.save(company + '_' + str(datetime.datetime.now().date()) + '_report.docx')
+    template.save(name_of + '_' + str(datetime.datetime.now().date()) + '_report.docx')
 
-def generate_report(company, date_of):
+def generate_report(name_of, discr, date_of):
     template = 'Jobs_from_L07_format_doc_report.docx'
     signature1 = 'Jobs_from_L07_image1.PNG'
     signature2 = 'Jobs_from_L07_image2.PNG'
     signature3 = 'Jobs_from_L07_image3.PNG'
-    document = from_template(company, date_of, template, signature1, signature2, signature3)
+    document = from_template(name_of, discr, date_of, template, signature1, signature2, signature3)
 
 # вспомагательная функция
 def toFixed(numObj, digits=0):
     return f"{numObj:.{digits}f}"
 
-generate_report('CORONAVIRUS', '03.04.2020')
+generate_report('CORONAVIRUS', 'Мировая статистика случаев заражения коронавирусом', '03.04.2020')
