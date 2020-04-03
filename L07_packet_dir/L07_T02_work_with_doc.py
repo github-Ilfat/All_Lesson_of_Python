@@ -28,7 +28,7 @@ def from_template(company, result_sku_list, template, signature):
 
 
 def generate_report(company, result_sku_list):
-    template = 'L07_T02_body_doc_report.docx'
+    template = 'L07_T02_format_doc_report.docx'
     signature = 'acc.png'
     document = from_template(company, result_sku_list, template, signature)
 
