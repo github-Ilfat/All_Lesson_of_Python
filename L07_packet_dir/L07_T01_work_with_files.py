@@ -34,6 +34,7 @@ f.close()
 # Открыли файл в режими записи (содержимое удалилось)
 f = open('L07_T01_body_file_data', 'w')
 content = f.write(txt)
+f.truncate(1010) # -- срезает указанное количество символов сначала текста, оставшееся удаляет
 #print(len(txt))
 #print(content) # в данном случае, выводит integer длину str - аналогично print(len(txt))
 f.close()
@@ -61,18 +62,21 @@ print()
 # Менеджер контекста
 with open('L07_T01_body_file_data') as f:
     line = f.readline() # считывание одной строки в память, а при следующем чтении идёт обращение к строке №2
-    line = f.readline(50) # либо 50 символов строки f.readline(50) уже со второй строки
-    print(line)
+#    line = f.readline(50) # либо 50 символов строки f.readline(50) уже со второй строки
+    print('str N1       ', line)
+
 
   # for line in f:
   #     print(line)
-'''
+
 # Считывание побайтно
 with open('L07_T01_body_file_data', 'r') as f:
-    data = f.read(10) # считывание одной строки
-    print(data, type(data))
+  for i in range(11):
+      data = f.read(30) # считывание 30 символов текста
+      print(data, end='')
+      #print(data, type(data))
 
-
+'''
 # Запись в файл
 
 # with open('data_new', 'w') as f:

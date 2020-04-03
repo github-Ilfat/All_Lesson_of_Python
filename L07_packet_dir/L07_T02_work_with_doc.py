@@ -1,18 +1,19 @@
 import datetime
 
+# необходимые модули и функции для работы с doc
 from docxtpl import DocxTemplate
 from docxtpl import InlineImage
 from docx.shared import Cm
 from docxtpl import DocxTemplate, InlineImage
 
-
-def get_context(company, result_sku_list): # возвращает словарь аргуменов
+# get_context - возвращает словарь аргуменов
+def get_context(company, result_sku_list):
     return {
         'retailer': company,
         'sku_list': result_sku_list,
     }
 
-
+# здесь происходит вставка в шаблон (signature - картинка)
 def from_template(company, result_sku_list, template, signature):
     template = DocxTemplate(template)
     context = get_context(company, result_sku_list)  # gets the context used to render the document
@@ -27,11 +28,11 @@ def from_template(company, result_sku_list, template, signature):
 
 
 def generate_report(company, result_sku_list):
-    template = 'report.docx'
+    template = 'L07_T02_body_doc_report.docx'
     signature = 'acc.png'
     document = from_template(company, result_sku_list, template, signature)
 
-
+# вспомагательная функция
 def toFixed(numObj, digits=0):
     return f"{numObj:.{digits}f}"
 
