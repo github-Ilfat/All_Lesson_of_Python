@@ -13,14 +13,14 @@ import csv
 # csv.writer
 car_data = [['brand', 'price', 'year'],['Volvo', 1.5, 2017],['Lada', 0.5, 2018],['Audi', 2.0, 2018]]
 
-with open('example.csv', 'w') as f:
+with open('L07_T03_body_file_example.csv', 'w') as f:
     writer = csv.writer(f, delimiter = '&') #
     writer.writerows(car_data)
 print('Writing complete!')
 
 # csv.reader
 
-with open('example.csv') as f:
+with open('L07_T03_body_file_example.csv') as f:
     reader = csv.reader(f,delimiter = '&')
     for row in reader:
         print(row)
