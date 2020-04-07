@@ -78,10 +78,10 @@ def cars_gen(num):
 proc = psutil.Process(os.getpid())
 
 print('Исп. память до вып. функции:' + str(proc.memory_info().rss/1000000))
-start=time.clock()
+#start=time.clock()
 cars_generator = cars_gen(1000000)
-stop=time.clock()
+#stop=time.clock()
 
 proc=psutil.Process(os.getpid())
 print('Исп. память после вып. функции:'+str(proc.memory_info().rss/1000000))
-print("Заняло {} секунд".format(stop-start))
+#print("Заняло {} секунд".format(stop-start))
