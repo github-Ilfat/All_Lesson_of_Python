@@ -72,7 +72,7 @@ with open('L07_T01_body_file_data') as f:
 # Считывание побайтно
 with open('L07_T01_body_file_data', 'r') as f:
   for i in range(11):
-      data = f.read(30) # считывание 30 символов текста
+      data = f.read(30) # считывание 30 символов из всего текста
       print(data, end='')
       #print(data, type(data))
 

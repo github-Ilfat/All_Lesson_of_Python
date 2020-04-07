@@ -7,11 +7,11 @@ dict_ex = {'brand': 'Volvo', 'Price': '1.5', 'Vol': 2.0}
 dict_to_json = json.dumps(dict_ex)
 print(type(dict_to_json), dict_to_json)
 
-with open('dict_to_json.txt', 'w') as f:
+with open('L07_T04_dict_to_json.txt', 'w') as f:
     json.dump(dict_ex, f)
 
 # load, loads
-with open('dict_to_json.txt') as f:
+with open('L07_T04_dict_to_json.txt') as f:
     data = json.load(f)
 
 print(type(data), data)
