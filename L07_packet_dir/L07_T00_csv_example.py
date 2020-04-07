@@ -32,7 +32,7 @@ data_dict = [{'Name': 'Dima', 'age': 28},
 
 fieldnames = ['Name','age']
 
-with open('example_1.csv', 'w') as f:
+with open('L07_T03_open_w_csv_example_1.csv', 'w') as f:
     writer = csv.DictWriter(f,delimiter = '&',fieldnames =  fieldnames)
     writer.writeheader()
     for i in range(len(data_dict)):
@@ -40,7 +40,7 @@ with open('example_1.csv', 'w') as f:
 
 # csv.Dictreder
 
-with open('example_1.csv') as f:
+with open('L07_T03_open_w_csv_example_1.csv') as f:
     reader = csv.DictReader(f, delimiter = '&')
     for row in reader:
         print(dict(row))
@@ -48,6 +48,6 @@ with open('example_1.csv') as f:
 
 import pandas as pd
 
-DataFrame_from_csv = pd.read_csv('example_1.csv',sep = '&')
+DataFrame_from_csv = pd.read_csv('L07_T03_open_w_csv_example_1.csv', sep ='&')
 print(type(DataFrame_from_csv))
 print(DataFrame_from_csv)

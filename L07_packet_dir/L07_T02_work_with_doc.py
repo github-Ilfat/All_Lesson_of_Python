@@ -29,7 +29,7 @@ def from_template(company, result_sku_list, template, signature):
 
 def generate_report(company, result_sku_list):
     template = 'L07_T02_format_doc_report.docx'
-    signature = 'acc.png'
+    signature = 'L07_T02_work_with_doc_image-acc.png'
     document = from_template(company, result_sku_list, template, signature)
 
 # вспомагательная функция
