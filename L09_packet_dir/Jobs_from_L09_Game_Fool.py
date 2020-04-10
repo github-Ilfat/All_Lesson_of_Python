@@ -14,10 +14,11 @@
 #                                               #
 #----------------------------------------------------------------------------------------------------------------------
 
+# С возможностью отладки и тестирования
+
 import random
 
-# по соглашению программистов, имена классов пишутся с Большой буквы - Dice (Кости)
-class Dice:
+class Dice_incopsulation:
     # Инициалицирующий МЕТОД (специальный метод с "__")
     # Инициализация атрибутов игры (N - количество бросков "throw_num" )
     def __init__(self,sw):
@@ -35,8 +36,51 @@ class Dice:
     # имеет те же правила наименования, что и обычные функции:
     def set_hidden_numbers(self):
         # Числа, загаданные компьютером (random от 1 до 6).
-        self._hidden_num_1 = random.randint(1,6) # инкапсуляция(скрытие значений параметра "_hidden_num_1", "_земля")
-        self._hidden_num_2 = random.randint(1,6) # инкапсуляция(скрытие значений параметра "_hidden_num_2", "_земля")
+        self.__hidden_num_1 = random.randint(1,6) # инкапсуляция( двойная земля "__") скрытие
+        self.__hidden_num_2 = random.randint(1,6) # инкапсуляция( двойная земля "__") скрытие
+
+    # Метод скрытого переприсваивания значений, может пригодится, например, при автоматическом тестировании.
+    def change_dices(self):
+        self.__hidden_num_1 = random.randint(1,6)
+        self.__hidden_num_2 = random.randint(1,6)
+
+    # set можем изменить без получения значения
+    # Метод скрытого переприсваивания значений для I кости, может пригодится, например, при ручном тестировании.
+    def set_dice1(self, dice):
+        #if (dice > 0) & (dice < 7)
+        self.__hidden_num_1 = dice
+    # Метод скрытого переприсваивания значений для II кости, может пригодится, например, при ручном тестировании.
+    def set_dice2(self, dice):
+        #if (dice > 0) & (dice < 7)
+        self.__hidden_num_2 = dice
+
+    # get можем изменить c получением значения
+    # Метод скрытого переприсваивания значений для I кости, может пригодится, например, при ручном тестировании.
+    def get_dice1(self):
+        #if (dice > 0) & (dice < 7)
+        return self.__hidden_num_1
+    # Метод скрытого переприсваивания значений для II кости, может пригодится, например, при ручном тестировании.
+    def get_dice2(self):
+        #if (dice > 0) & (dice < 7)
+        return self.__hidden_num_2
+
+    @property
+    def hidden_num_1(self):
+        #if (dice > 0) & (dice < 7)
+        return self.__hidden_num_1
+
+    @hidden_num_1.setter
+    def hidden_num_1(self, dice):
+        self.__hidden_num_1 = dice
+
+    @property
+    def hidden_num_2(self):
+        #if (dice > 0) & (dice < 7)
+        return self.__hidden_num_2
+
+    @hidden_num_2.setter
+    def hidden_num_2(self, dice):
+        self.__hidden_num_2 = dice
 
     # имитация бросания костей (кубиков со сторанами указывающими на цифры от 1 до 6).
     def throw_dices(self):
@@ -44,13 +88,13 @@ class Dice:
         self.dice_2 = random.randint(1,6)
         # условия совпадения брошенных костей и загаданных компьютером, индексация результата:
         # совпала первая кость
-        if (sw==1 or sw==2) and (dice_game.dice_1 == dice_game._hidden_num_1 and dice_game.dice_2 == dice_game._hidden_num_2):
+        if (sw==1 or sw==2) and (dice_game.dice_1 == dice_game.__hidden_num_1 and dice_game.dice_2 == dice_game.__hidden_num_2):
             self.id_return = 1
         if sw==2 and self.id_return == 0 \
-                and (dice_game.dice_1 == dice_game._hidden_num_1 or dice_game.dice_1 == dice_game._hidden_num_2 \
-                     or dice_game.dice_2 == dice_game._hidden_num_1 or dice_game.dice_2 == dice_game._hidden_num_2):
+                and (dice_game.dice_1 == dice_game.__hidden_num_1 or dice_game.dice_1 == dice_game.__hidden_num_2 \
+                     or dice_game.dice_2 == dice_game.__hidden_num_1 or dice_game.dice_2 == dice_game.__hidden_num_2):
             self.id_return = 2
-        if ((dice_game.dice_1 + dice_game.dice_2) == (dice_game._hidden_num_1 + dice_game._hidden_num_2)):
+        if ((dice_game.dice_1 + dice_game.dice_2) == (dice_game.__hidden_num_1 + dice_game.__hidden_num_2)):
             self.id_return += 10
         if self.id_return == 0:
             return self.id_return
@@ -69,14 +113,14 @@ if __name__ == '__main__':
     print('# **************************************************************************************************')
     # Инициализация бросков
     for i in range(1,N+1):
-        dice_game = Dice(sw) # запуск с указанием количества попыток
+        dice_game = Dice_incopsulation(sw) # запуск с указанием количества попыток
         dice_game.set_hidden_numbers()
         dice_game.throw_dices()
         chk=0
         sp=' '
         if i>9: sp=''
         print('#'+sp, i, '- бросок игрока:', dice_game.dice_1, dice_game.dice_2)
-        print('# - числа компьютера:', dice_game._hidden_num_1,dice_game._hidden_num_2) # вывод
+        print('# - числа компьютера:', dice_game.hidden_num_1,dice_game.hidden_num_2) # вывод
         # условия совпадения брошенных костей и загаданных компьютером, индексация результата:
         if dice_game.id_return == 11:
             print('# результат: есть полное совпадение цифр (1-6)!!!')
@@ -91,37 +135,27 @@ if __name__ == '__main__':
             print('# результат: нет ни одного совпадения.')
     print('# **************************************************************************************************')
     print('# ************************************  Игра окончена!  ********************************************')
-#----------------------------------------------------------------------------------------------------------------------
+    #----------------------------------------------------------------------------------------------------------------------
 
-# ********************************** "ИГРА В КОСТИ" ************************************************
-# Режим игры:
-#  2 - раздельное совпадение по 1 кости (возможность равенством сумм и полного совпадения)
-# количество бросков: 7
-# **************************************************************************************************
-#  1 - бросок игрока: 6 1
-# - числа компьютера: 3 6
-# результат: есть раздельное совпадение цифр (1-6)
-#  2 - бросок игрока: 3 1
-# - числа компьютера: 2 5
-# результат: нет ни одного совпадения.
-#  3 - бросок игрока: 6 2
-# - числа компьютера: 3 1
-# результат: нет ни одного совпадения.
-#  4 - бросок игрока: 4 1
-# - числа компьютера: 5 3
-# результат: нет ни одного совпадения.
-#  5 - бросок игрока: 4 1
-# - числа компьютера: 3 5
-# результат: нет ни одного совпадения.
-#  6 - бросок игрока: 3 4
-# - числа компьютера: 4 3
-# результат: есть раздельное совпадение цифр (1-6)
-# результат: совпадение сумм!!!!!!
-#  7 - бросок игрока: 3 1
-# - числа компьютера: 3 1
-# результат: есть полное совпадение цифр (1-6)!!!
-# результат: совпадение сумм!!!!!!
-# **************************************************************************************************
-# ************************************  Игра окончена!  ********************************************
+    # ОТЛАДКА:
 
-# Process finished with exit code 0
+    print(dir(dice_game))
+
+    #dice_game.__throw_dices()
+
+    #print('Доступ нет: ', dice_game.__hidden_num_1,dice_game.__hidden_num_2 ) # эти скрыты
+
+    print('Доступ есть через set: ', dice_game.hidden_num_1, dice_game.hidden_num_2)
+
+    print('Доступ есть через get: ', dice_game.get_dice1(), dice_game.get_dice2())
+
+    # в ручную задаём значения в set:
+    dice_game.hidden_num_1 = 5
+    dice_game.hidden_num_2 = 4
+
+    # в ручную задаём значения в get:
+    dice_game.set_dice1(5)
+    dice_game.set_dice2(4)
+
+    # print(dice_game.get_dice1(), dice_game.get_dice2())
+    print(dice_game.hidden_num_1, dice_game.hidden_num_2)
