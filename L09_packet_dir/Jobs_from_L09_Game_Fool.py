@@ -10,7 +10,7 @@
 # результат.                                    # 1 Инициализация параметров игры.
 # Раздача по 6 карт, смешанных "компьютером",   # 2 Подключение генератора случайных чисел random для колоды карт.
 # игроку и компьютеру, сохранение колоды        # 3 Подключение правил игры.
-#                                               #
+#                                               # 4 Организация идентификации результата и вывода сообщений
 #                                               #
 #----------------------------------------------------------------------------------------------------------------------
 
@@ -18,7 +18,8 @@
 
 import random
 
-class Dice_incopsulation:
+# по соглашению программистов, имена классов пишутся с Большой буквы "Game_Fool" 
+class Game_Fool:
     # Инициалицирующий МЕТОД (специальный метод с "__")
     # Инициализация атрибутов игры (N - количество бросков "throw_num" )
     def __init__(self,sw):
@@ -88,13 +89,13 @@ class Dice_incopsulation:
         self.dice_2 = random.randint(1,6)
         # условия совпадения брошенных костей и загаданных компьютером, индексация результата:
         # совпала первая кость
-        if (sw==1 or sw==2) and (dice_game.dice_1 == dice_game.__hidden_num_1 and dice_game.dice_2 == dice_game.__hidden_num_2):
+        if (sw==1 or sw==2) and (fool_game.dice_1 == fool_game.__hidden_num_1 and fool_game.dice_2 == fool_game.__hidden_num_2):
             self.id_return = 1
         if sw==2 and self.id_return == 0 \
-                and (dice_game.dice_1 == dice_game.__hidden_num_1 or dice_game.dice_1 == dice_game.__hidden_num_2 \
-                     or dice_game.dice_2 == dice_game.__hidden_num_1 or dice_game.dice_2 == dice_game.__hidden_num_2):
+                and (fool_game.dice_1 == fool_game.__hidden_num_1 or fool_game.dice_1 == fool_game.__hidden_num_2 \
+                     or fool_game.dice_2 == fool_game.__hidden_num_1 or fool_game.dice_2 == fool_game.__hidden_num_2):
             self.id_return = 2
-        if ((dice_game.dice_1 + dice_game.dice_2) == (dice_game.__hidden_num_1 + dice_game.__hidden_num_2)):
+        if ((fool_game.dice_1 + fool_game.dice_2) == (fool_game.__hidden_num_1 + fool_game.__hidden_num_2)):
             self.id_return += 10
         if self.id_return == 0:
             return self.id_return
@@ -113,22 +114,22 @@ if __name__ == '__main__':
     print('# **************************************************************************************************')
     # Инициализация бросков
     for i in range(1,N+1):
-        dice_game = Dice_incopsulation(sw) # запуск с указанием количества попыток
-        dice_game.set_hidden_numbers()
-        dice_game.throw_dices()
+        fool_game = Game_Fool(sw) # запуск с указанием количества попыток
+        fool_game.set_hidden_numbers()
+        fool_game.throw_dices()
         chk=0
         sp=' '
         if i>9: sp=''
-        print('#'+sp, i, '- бросок игрока:', dice_game.dice_1, dice_game.dice_2)
-        print('# - числа компьютера:', dice_game.hidden_num_1,dice_game.hidden_num_2) # вывод
+        print('#'+sp, i, '- бросок игрока:', fool_game.dice_1, fool_game.dice_2)
+        print('# - числа компьютера:', fool_game.hidden_num_1,fool_game.hidden_num_2) # вывод
         # условия совпадения брошенных костей и загаданных компьютером, индексация результата:
-        if dice_game.id_return == 11:
+        if fool_game.id_return == 11:
             print('# результат: есть полное совпадение цифр (1-6)!!!')
             chk=1
-        if dice_game.id_return == 2 or dice_game.id_return == 12:
+        if fool_game.id_return == 2 or fool_game.id_return == 12:
             print('# результат: есть раздельное совпадение цифр (1-6)')
             chk=1
-        if  dice_game.id_return == 11 or dice_game.id_return == 12 or dice_game.id_return == 10:
+        if  fool_game.id_return == 11 or fool_game.id_return == 12 or fool_game.id_return == 10:
             print('# результат: совпадение сумм!!!!!!')
             chk=1
         if chk==0:
@@ -139,23 +140,23 @@ if __name__ == '__main__':
 
     # ОТЛАДКА:
 
-    print(dir(dice_game))
+    print(dir(fool_game))
 
-    #dice_game.__throw_dices()
+    #fool_game.__throw_dices()
 
-    #print('Доступ нет: ', dice_game.__hidden_num_1,dice_game.__hidden_num_2 ) # эти скрыты
+    #print('Доступ нет: ', fool_game.__hidden_num_1,fool_game.__hidden_num_2 ) # эти скрыты
 
-    print('Доступ есть через set: ', dice_game.hidden_num_1, dice_game.hidden_num_2)
+    print('Доступ есть через set: ', fool_game.hidden_num_1, fool_game.hidden_num_2)
 
-    print('Доступ есть через get: ', dice_game.get_dice1(), dice_game.get_dice2())
+    print('Доступ есть через get: ', fool_game.get_dice1(), fool_game.get_dice2())
 
     # в ручную задаём значения в set:
-    dice_game.hidden_num_1 = 5
-    dice_game.hidden_num_2 = 4
+    fool_game.hidden_num_1 = 5
+    fool_game.hidden_num_2 = 4
 
     # в ручную задаём значения в get:
-    dice_game.set_dice1(5)
-    dice_game.set_dice2(4)
+    fool_game.set_dice1(5)
+    fool_game.set_dice2(4)
 
-    # print(dice_game.get_dice1(), dice_game.get_dice2())
-    print(dice_game.hidden_num_1, dice_game.hidden_num_2)
+    # print(fool_game.get_dice1(), fool_game.get_dice2())
+    print(fool_game.hidden_num_1, fool_game.hidden_num_2)
