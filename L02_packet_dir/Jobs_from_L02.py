@@ -8,7 +8,7 @@
 '''
 '''
 print('Задача 1. Данный скрипт выводит на экран циклом пять пронумерованных строк из нулей.')
-для i в диапазоне (1,6,1): print(i,') ', 0, sep=")
+for i in range(1,6,1): print(i,') ', 0, sep='')
 '''
 
 '''
@@ -17,13 +17,13 @@ print('Задача 1. Данный скрипт выводит на экран 
 Пользователь в цикле вводит 10 цифр. Найти количество введеных пользователем цифр 5.
 '''
 '''
-def is_digit (строка):
- flag_ok = 0
- если строка.isdigit():
- если len (string)= = 1 и (int (string) >=0 и int (string) >
- еще:
- возвращать false
-пять = 0
+def is_digit(string):
+    flag_ok = 0
+    if string.isdigit():
+        if len(string)==1 and (int(string) >=0 and int(string) <= 10): return True
+    else:
+        return False
+five = 0
 err = 0
 i = 0
 print('Задача 2. Данный скрипт подсчитывает количество цифр 5, введённых пользователем в цикле 10 цифр.')
@@ -167,9 +167,9 @@ integer_number = 213413
 print('исследуемое число: ', integer_number)
 max = 0
 while integer_number>0:
- if integer_number%10 > max: max = integer_number%10
- integer_number = integer_number/ / 10
- if integer_number == 0: print('Ответ, максимальная цифра в числе = ', max)
+    if integer_number%10 > max: max = integer_number%10
+    integer_number = integer_number//10
+    if integer_number == 0:  print('Ответ, максимальная цифра в числе = ', max)
 '''
 
 '''
@@ -183,7 +183,7 @@ integer_number = 2535154345
 print('исследуемое число: ', integer_number)
 n5=0
 while integer_number>0:
- если целое число%10 == 5: n5+=1
- integer_number = integer_number/ / 10
- if integer_number == 0: print('Ответ, количество цифр 5 в числе = ', n5)
+    if integer_number%10 == 5: n5+=1
+    integer_number = integer_number//10
+    if integer_number == 0:  print('Ответ, количество цифр 5 в числе = ', n5)
 '''
