@@ -24,21 +24,31 @@ class Game_Fool:
     # Инициализация атрибутов игры (N - количество бросков "throw_num" )
     def __init__(self,sw):
         # Поля читаются и записываются через "self" - указывает на текущий экземпляр класса
-        self.id_return = 0
-        # id результата: 11 - есть полное совпадение цифр (1-6)!!!
-        # id результата: 2,12 - есть раздельное совпадение цифр (1-6)
-        # id результата: 10,11,12 - результат: совпадение сумм!!!!!!
-        self.switch = sw
-        # Режимы игры: 1 полное,
-        # Режимы игры: 2 раздельное,
-        # Режимы игры: 3 только равенство сумм
+        # крести chr(167), буби chr(168), черви chr(169), пики chr(170)
+        self.suit=['♣','♦','♥','♠']
+        self.card=['6','7','8','9','10','V','D','K','T']
+        self.Card_deck = [] # Колода карт
+        self.Gamer_deck = Gmr_dck # карты игрока
+        self.Comp_desk = Cmp_dsk # карты компьютера
+        self.Trump_card = Trmp_crd # козырная карта
+        self.Broken_cards = Brkn_crds # битые карты
 
     # Обычный метод объекта(метод экземпляра класса),
     # имеет те же правила наименования, что и обычные функции:
-    def set_hidden_numbers(self):
-        # Числа, загаданные компьютером (random от 1 до 6).
-        self.__hidden_num_1 = random.randint(1,6) # инкапсуляция( двойная земля "__") скрытие
-        self.__hidden_num_2 = random.randint(1,6) # инкапсуляция( двойная земля "__") скрытие
+    def set_Card_deck(self):
+        # заполнение списка - колоды карт
+        for c in range(0,9):
+            self.card_tmp=self.card[c]
+            for m in range(0,4):
+                self.Card_deck.append(self.card_tmp + self.suit[m])
+        random.shuffle(self.Card_deck)
+        print(self.Card_deck)
+        random_number = random.choice(self.Card_deck)
+        print(self.Card_deck)
+
+        self.__Card_deck = random.randint(1,36) # инкапсуляция( двойная земля "__") скрытие
+        self.__Gamer_deck = random.randint(1,6) # инкапсуляция( двойная земля "__") скрытие
+        self.__Comp_desk = random.randint(1,6) # инкапсуляция( двойная земля "__") скрытие
 
     # Метод скрытого переприсваивания значений, может пригодится, например, при автоматическом тестировании.
     def change_dices(self):
