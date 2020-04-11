@@ -4,6 +4,8 @@
     <option name="ignoredIdentifiers">
       <list>
         <option value="L06_packet_dir.test_python_L06_branche_for_Job_L05_TEST02.*" />
+        <option value="L09_packet_dir.L09_T03_dice_game_dif.L09_T02_dice_game" />
+        <option value="L09_packet_dir.L09_T02_dice_game_part2.L09_T02_dice_game_part1" />
       </list>
     </option>
   </inspection_tool>
