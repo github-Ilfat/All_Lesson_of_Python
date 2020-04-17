@@ -1,0 +1,2 @@
+from L09_packet_dir.Jobs_from_L09_Game_Fool_pkg.by_Ilfat_Safiullin_Game_fool_card_desc import Game_fool_card_desc
+from L09_packet_dir.Jobs_from_L09_Game_Fool_pkg.by_Aleksey_Vedyashkin_game_logic1_durak import Game_logic1_durak
