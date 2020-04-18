@@ -2,14 +2,16 @@
   <component name="FileTypeManager" version="17">
     <ignoreFiles list="*$py.class;*.hprof;*.pyc;*.pyo;*.rbc;*.yarb;*~;.DS_Store;.git;.hg;.svn;CVS;__pycache__;_svn;vssver.scc;vssver2.scc;" />
     <extensionMap>
-      <mapping pattern="Jobs_from_L07_body_text_file" type="PLAIN_TEXT" />
-      <mapping pattern="L07_T01_body_file_data2" type="PLAIN_TEXT" />
-      <mapping pattern="L06_branche_for_Job_L05_TEST01_data" type="PLAIN_TEXT" />
-      <mapping pattern="Jobs_from_L07_body_text_file.txt" type="PLAIN_TEXT" />
-      <mapping pattern="1" type="PLAIN_TEXT" />
       <mapping pattern="L06_branche_for_Job_L05_TEST1_data" type="PLAIN_TEXT" />
+      <mapping pattern="Jobs_from_L07_body_text_file.txt" type="PLAIN_TEXT" />
+      <mapping pattern="Jobs_from_L07_body_text_file" type="PLAIN_TEXT" />
+      <mapping pattern="Player_second_won" type="PLAIN_TEXT" />
       <mapping pattern="Jobs_from_L07_data_03_04_2020_text_file" type="PLAIN_TEXT" />
       <mapping pattern="Jobs_from_L07_data_text_file" type="PLAIN_TEXT" />
+      <mapping pattern="Player_first_won" type="PLAIN_TEXT" />
+      <mapping pattern="L07_T01_body_file_data2" type="PLAIN_TEXT" />
+      <mapping pattern="L06_branche_for_Job_L05_TEST01_data" type="PLAIN_TEXT" />
+      <mapping pattern="1" type="PLAIN_TEXT" />
       <mapping ext="pickle" type="PLAIN_TEXT" />
     </extensionMap>
   </component>
