@@ -126,7 +126,7 @@ class Game_fool_card_desc:
                                 if i==5: self.img.insert(l+5,f'\033[42m{self.action2:<9}\033[0m')
                             else: self.img.insert(l+i,'         ')
                         elif d==1 and n==1 and i==8:
-                            self.img.insert(l+8,'\033[47m"Калода" \033[0m')
+                            self.img.insert(l+8,'\033[47m"Колода" \033[0m')
                         elif d==1 and n==(len(self.ds)-1) and i==8:
                                 self.img.insert(l+8,'\033[47m "Бито"  \033[0m')
                         else:
@@ -146,7 +146,7 @@ class Game_fool_card_desc:
                     self.img.insert(l+7,'└───────┘')
 
                     if n==1:
-                        self.img.insert(l+8,'\033[47m"Калода" \033[0m')
+                        self.img.insert(l+8,'\033[47m"Колода" \033[0m')
                     elif n==(len(self.ds)-1):
                         self.img.insert(l+8,'\033[47m "Бито"  \033[0m')
                     else:
