@@ -14,7 +14,7 @@ from L09_packet_dir.Jobs_from_L09_Game_Fool_pkg.by_Aleksey_Vedyashkin_game_logic
 r=''
 mode=0
 print('Демонстрационная игра в карточную игру "Дурак"')
-print('Доступны 2 режим демонтстрации: с комментариями автора "y" логики или без "n" ')
+print('Доступны 2 режим демонтстрации: с комментариями автора логики "y" или без комментариев "n" ')
 while mode==0:
     user_change = input('\rПрошу выбрать режим демонтстрации:')
     if user_change=='y':
