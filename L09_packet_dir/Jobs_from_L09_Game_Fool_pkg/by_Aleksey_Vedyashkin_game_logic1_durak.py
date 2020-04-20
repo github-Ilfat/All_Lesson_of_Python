@@ -1154,6 +1154,7 @@ class Game_logic1_durak:
                 break
 
 if __name__ == '__main__':
-    cards_game = Game_logic1_durak(25)
+    mode=2
+    cards_game = Game_logic1_durak(25, mode)
     cards_game.set_players_cards()
     cards_game.turn_cards()
