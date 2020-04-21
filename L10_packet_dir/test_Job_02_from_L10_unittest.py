@@ -5,7 +5,7 @@ from For_Job_01_L10_Game_fool_card_desc import Game_fool_card_desc
 class Test_Game_fool_card_desc_unittest(unittest.TestCase):
 
     def setUp(self):
-        # Присвоение значений для параметров класса "Игровой стол ДУРАК"
+        # Присвоение значений для параметров класса "-=СТОЛ КАРТОЧНОЙ ИГРЫ "В ДУРАКА"=-"
         name1='Комп1' #──── имя игрока 1
         name2='Комп2' #──── имя игрока 2
         gmr1c = [0,0,0,6,0,0,0,0,0] #──── ранг карты, игрока 1
