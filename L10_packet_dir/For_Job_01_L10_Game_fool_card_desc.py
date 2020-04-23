@@ -52,9 +52,11 @@ class Game_fool_card_desc:
                 self.ts=self.g1s # num_suit:[0,1,2,,,10] список масти карты игрока1
             if d==1:
                 # включение режима наложения карт - "карточный бой"
-                if (self.dc[5]!=0 and self.ds[6]!=0) or (self.ds[5]!=0 and self.dc[6]!=0):
+                if (self.dc[5]>=1 and self.ds[6]>=1) or (self.ds[5]>=1 and self.dc[6]>=1):
                     del self.ds[0]
-                    self.ds.insert(0,1) # флаг включения режима
+                    self.ds.insert(0,1) # флаг включения режима -- правильно!
+                    #self.ds.insert(0,0) # флаг включения режима --------------- не правильно!
+
                 self.nc=len(self.dc) # количество карт компьютера для отображения len(tcard)=len(tsuit)
                 self.tc=self.dc # num_card:[0,1,2,,,10] список иерархического имени козыря, изображение колоды, боя и биты
                 self.ts=self.ds # num_suit:[0,1,2,,,5] список масти козыря, изображение колоды, боя и биты

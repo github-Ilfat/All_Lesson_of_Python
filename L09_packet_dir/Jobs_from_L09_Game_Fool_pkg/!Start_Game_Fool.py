@@ -11,6 +11,17 @@
 
 from L09_packet_dir.Jobs_from_L09_Game_Fool_pkg.by_Aleksey_Vedyashkin_game_logic1_durak import Game_logic1_durak
 
-cards_game = Game_logic1_durak(25)
+r=''
+mode=0
+print('Демонстрационная программа карточной игры "Дурак"')
+print('Доступны 2 режим демонтстрации: с комментариями автора логики "y" или без комментариев "n" ')
+while mode==0:
+    user_change = input('\rПрошу выбрать режим демонтстрации:')
+    if user_change=='y':
+        mode=2
+    if user_change=='n':
+        mode=1
+
+cards_game = Game_logic1_durak(25,mode)
 cards_game.set_players_cards()
 cards_game.turn_cards()
