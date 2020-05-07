@@ -1471,6 +1471,7 @@ if __name__ == '__main__':
     cards_game.turn_cards()
 '''
 
+"""
 # Решение задачи 4
 print("Представьте, что вы подбрасываете два кубика одновременно,")
 d1=input("введите первое целое число [1,...,6]:")
@@ -1498,3 +1499,27 @@ summa=int(d1)+int(d2)
 if summa==7 or summa==11: print("Я победил!!!")
 elif summa==2 or summa==3 or summa==12 : print("Я проиграл :(")
 else: print(summa)
+"""
+
+sample_list = ["мандаринки", "киви", "лимон"]
+# Решение задачи 6
+print("Ответ 6. Код, который создает список (list) путем конкатенации значений данного листа с целыми числами от 1 до (произвольного) n включительно")
+gen_list=[]
+str_item=''
+for n in range(len(sample_list)):
+    for el in sample_list:
+        str_item=el + "_" + str(n+1)
+        gen_list.append(str_item)
+print(type(gen_list),gen_list)
+
+
+list_for_pro_task_2 = [35, 0.24, 3 + 4j, "котики", 0.45, (8, 9), "слоники", {"Мадрид": 3, 'Лондон':5}, 23498]
+print(list_for_pro_task_2)
+# Решение задачи 7
+print("Ответ 7. Код, который считает количество элементов в заданном списке до тех пор, пока не встретится элемент типа словарь.")
+i=0
+for el in list_for_pro_task_2:
+    if type(el) is dict:
+        print('ответ:',i)
+        break
+    i+=1
