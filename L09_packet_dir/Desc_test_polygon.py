@@ -1470,3 +1470,31 @@ if __name__ == '__main__':
     cards_game.set_players_cards()
     cards_game.turn_cards()
 '''
+
+# Решение задачи 4
+print("Представьте, что вы подбрасываете два кубика одновременно,")
+d1=input("введите первое целое число [1,...,6]:")
+d2=input("введите второе целое число [1,...,6]:")
+chk1=0
+chk2=0
+chk_ok=0
+while chk_ok==0:
+    if chk1==0 or d1=='':
+        for i in range(1,7):
+            if chk1==0 and d1==str(i):
+                chk1=1
+                break
+            if i==6 and chk1==0:
+                d1=input("Ошибка! Значение на кубике 1 не входит в интервал [1, 6]:")
+    if chk2==0 or d2=='':
+        for i in range(1,7):
+            if chk2==0 and d2==str(i):
+                chk2=1
+                break
+            if i==6 and chk2==0:
+                d2=input("Ошибка! Значение на кубике 2 не входит в интервал [1, 6]:")
+    if chk1==1 and chk2==1: chk_ok=int(chk1)+int(chk1)
+summa=int(d1)+int(d2)
+if summa==7 or summa==11: print("Я победил!!!")
+elif summa==2 or summa==3 or summa==12 : print("Я проиграл :(")
+else: print(summa)
